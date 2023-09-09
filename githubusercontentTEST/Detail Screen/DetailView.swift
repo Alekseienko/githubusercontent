@@ -10,16 +10,22 @@ import UIKit
 class DetailView: UIView {
     
     let imageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "img"))
+        let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
-        view.backgroundColor = .gray
+        view.backgroundColor = .systemGray6
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let activity: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.color = .blue
+        view.hidesWhenStopped = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     let titleLabel: UILabel = {
         let view = UILabel()
-        view.text = "The Ingenious Prank Music Legend Mozart Played On Someone He Couldn’t Stand"
         view.font = .boldSystemFont(ofSize: 20)
         view.textAlignment = .left
         view.textColor = .label
@@ -30,7 +36,6 @@ class DetailView: UIView {
     }()
     let previewText: UITextView = {
         let view = UITextView()
-        view.text = "When we think of famous bands, we have an image of each member’s distinctive roles. More often than not, every member has clearly defined roles that they stick to from beginning to end.When we think of famous bands, we have an image of each member’s distinctive roles. More often than not, every member has clearly defined roles that they stick to from beginning to end.When we think of famous bands, we have an image of each member’s distinctive roles. More often than not, every member has clearly defined roles that they stick to from beginning to end.When we think of famous bands, we have an image of each member’s distinctive roles. More often than not, every member has clearly defined roles that they stick to from beginning to end."
         view.textColor = .secondaryLabel
         view.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         view.textAlignment = .left
@@ -39,13 +44,11 @@ class DetailView: UIView {
     }()
     let likeCountLabel: UILabel = {
         let view = UILabel()
-        view.text = "❤️ 4534534"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     let timeshampLabel: UILabel = {
         let view = UILabel()
-        view.text = "21 ago"
         view.textAlignment = .right
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -71,6 +74,7 @@ extension DetailView {
         backgroundColor = .white
         
         addSubview(imageView)
+        addSubview(activity)
         addSubview(titleLabel)
         addSubview(previewText)
         addSubview(likeCountLabel)
@@ -81,6 +85,9 @@ extension DetailView {
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
+            activity.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            activity.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 12),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),

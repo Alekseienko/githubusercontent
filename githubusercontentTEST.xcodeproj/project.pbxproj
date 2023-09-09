@@ -18,6 +18,9 @@
 		0B5669422AACCA5A007EA328 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5669412AACCA5A007EA328 /* MainTableViewCell.swift */; };
 		0B5669452AACEF18007EA328 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5669442AACEF18007EA328 /* NetworkManager.swift */; };
 		0B5669482AACF005007EA328 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5669472AACF005007EA328 /* Model.swift */; };
+		0B56694A2AACF25B007EA328 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5669492AACF25B007EA328 /* Constants.swift */; };
+		0B56694D2AACF5ED007EA328 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B56694C2AACF5ED007EA328 /* Helper.swift */; };
+		0B5669502AACFD68007EA328 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B56694F2AACFD68007EA328 /* UIImageView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		0B5669412AACCA5A007EA328 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		0B5669442AACEF18007EA328 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0B5669472AACF005007EA328 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0B5669492AACF25B007EA328 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0B56694C2AACF5ED007EA328 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		0B56694F2AACFD68007EA328 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,15 +72,17 @@
 		0B5669242AACC5C6007EA328 /* githubusercontentTEST */ = {
 			isa = PBXGroup;
 			children = (
+				0B56694B2AACF2F9007EA328 /* App */,
 				0B5669462AACEFF7007EA328 /* Model */,
 				0B5669432AACEF00007EA328 /* Managers */,
-				0B5669252AACC5C6007EA328 /* AppDelegate.swift */,
-				0B5669272AACC5C6007EA328 /* SceneDelegate.swift */,
 				0B56693F2AACC7E3007EA328 /* Main Screen */,
 				0B5669402AACC7FB007EA328 /* Detail Screen */,
 				0B56692E2AACC5C7007EA328 /* Assets.xcassets */,
 				0B5669302AACC5C7007EA328 /* LaunchScreen.storyboard */,
 				0B5669332AACC5C7007EA328 /* Info.plist */,
+				0B5669492AACF25B007EA328 /* Constants.swift */,
+				0B56694C2AACF5ED007EA328 /* Helper.swift */,
+				0B56694F2AACFD68007EA328 /* UIImageView + Extension.swift */,
 			);
 			path = githubusercontentTEST;
 			sourceTree = "<group>";
@@ -112,6 +120,15 @@
 				0B5669472AACF005007EA328 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0B56694B2AACF2F9007EA328 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0B5669252AACC5C6007EA328 /* AppDelegate.swift */,
+				0B5669272AACC5C6007EA328 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,11 +201,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B5669502AACFD68007EA328 /* UIImageView + Extension.swift in Sources */,
+				0B56694D2AACF5ED007EA328 /* Helper.swift in Sources */,
 				0B5669482AACF005007EA328 /* Model.swift in Sources */,
 				0B56692A2AACC5C6007EA328 /* MainViewController.swift in Sources */,
 				0B56693E2AACC7AD007EA328 /* DetailView.swift in Sources */,
 				0B56693A2AACC6A9007EA328 /* MainView.swift in Sources */,
 				0B5669422AACCA5A007EA328 /* MainTableViewCell.swift in Sources */,
+				0B56694A2AACF25B007EA328 /* Constants.swift in Sources */,
 				0B5669452AACEF18007EA328 /* NetworkManager.swift in Sources */,
 				0B56693C2AACC79B007EA328 /* DetailViewController.swift in Sources */,
 				0B5669262AACC5C6007EA328 /* AppDelegate.swift in Sources */,

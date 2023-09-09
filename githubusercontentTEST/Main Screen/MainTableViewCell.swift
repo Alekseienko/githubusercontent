@@ -13,7 +13,6 @@ class MainTableViewCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let view = UILabel()
-        view.text = "The Ingenious Prank Music Legend Mozart Played On Someone He Couldn’t Stand"
         view.font = .boldSystemFont(ofSize: 20)
         view.textAlignment = .left
         view.textColor = .label
@@ -24,7 +23,6 @@ class MainTableViewCell: UITableViewCell {
     }()
     let previewText: UILabel = {
         let view = UILabel()
-        view.text = "When we think of famous bands, we have an image of each member’s distinctive roles. More often than not, every member has clearly defined roles that they stick to from beginning to end.When we think of famous bands, we have an image of each member’s distinctive roles. More often than not, every member has clearly defined roles that they stick to from beginning to end.When we think of famous bands, we have an image of each member’s distinctive roles. More often than not, every member has clearly defined roles that they stick to from beginning to end.When we think of famous bands, we have an image of each member’s distinctive roles. More often than not, every member has clearly defined roles that they stick to from beginning to end."
         view.textColor = .secondaryLabel
         view.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         view.textAlignment = .left
@@ -34,13 +32,11 @@ class MainTableViewCell: UITableViewCell {
     }()
     let likeCountLabel: UILabel = {
         let view = UILabel()
-        view.text = "❤️ 4534534"
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     let timeshampLabel: UILabel = {
         let view = UILabel()
-        view.text = "21 ago"
         view.textAlignment = .right
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
