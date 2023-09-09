@@ -21,6 +21,31 @@ extension MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         config()
+        
+        let url = URL(string: "https://raw.githubusercontent.com/anton-natife/jsons/master/api/main.json")!
+
+        NetworkManager.shared.fetchData(from: url, responseType: Posts.self) { result in
+            switch result {
+            case .success(let posts):
+                
+              //postss = posts
+                do {
+                    let encoder = JSONEncoder()
+                    encoder.outputFormatting = .prettyPrinted
+                    let data = try encoder.encode(posts)
+                    
+                    if let jsonString = String(data: data, encoding: .utf8) {
+                        print("Received posts:\n\(jsonString)")
+                    } else {
+                        print("Unable to convert data to UTF-8 string.")
+                    }
+                } catch {
+                    print("Error encoding or converting data: \(error)")
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
 }
 

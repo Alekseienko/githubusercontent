@@ -9,7 +9,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
     private let mainView = DetailView()
-    
 }
 
 // MARK: - Lifecircle
