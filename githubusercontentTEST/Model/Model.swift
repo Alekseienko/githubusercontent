@@ -27,12 +27,12 @@ struct Post: Codable {
     }
 }
 
-// MARK: - PostDetail
+// MARK: - PostDetailData
 struct PostDetailData: Codable {
     let post: PostDetail
 }
 
-// MARK: - Post
+// MARK: - PostDetail
 struct PostDetail: Codable {
     let postID, timeshamp: Int
     let title, text: String

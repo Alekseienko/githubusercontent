@@ -8,7 +8,7 @@
 import Foundation
 
 class NetworkManager {
-    static let shared = NetworkManager() // Singleton instance
+    static let shared = NetworkManager()
     
     private init() {}
     
@@ -18,12 +18,10 @@ class NetworkManager {
                 completion(.failure(error))
                 return
             }
-            
             guard let data = data else {
                 completion(.failure(NetworkError.noData))
                 return
             }
-            
             do {
                 let decoder = JSONDecoder()
                 let responseObject = try decoder.decode(T.self, from: data)

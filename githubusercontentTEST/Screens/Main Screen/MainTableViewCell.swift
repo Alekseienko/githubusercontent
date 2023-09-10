@@ -108,18 +108,17 @@ extension MainTableViewCell {
             previewText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             previewText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             
+            likeCountLabel.topAnchor.constraint(equalTo: previewText.bottomAnchor, constant: 12),
+            likeCountLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            
+            timeshampLabel.topAnchor.constraint(equalTo: previewText.bottomAnchor, constant: 12),
+            timeshampLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+           
+            button.topAnchor.constraint(equalTo: likeCountLabel.bottomAnchor, constant: 12),
             button.heightAnchor.constraint(equalToConstant: 60),
             button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            
-            likeCountLabel.topAnchor.constraint(equalTo: previewText.bottomAnchor, constant: 12),
-            likeCountLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            likeCountLabel.bottomAnchor.constraint(equalTo: button.topAnchor,constant: -12),
-            
-            timeshampLabel.topAnchor.constraint(equalTo: previewText.bottomAnchor, constant: 12),
-            timeshampLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            timeshampLabel.bottomAnchor.constraint(equalTo: button.topAnchor,constant: -12),
         ])
     }
 }

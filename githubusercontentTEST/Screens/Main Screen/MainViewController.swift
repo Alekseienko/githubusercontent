@@ -125,7 +125,7 @@ extension MainViewController: UITableViewDataSource {
         cell.previewText.text = post.previewText
         cell.likeCountLabel.text = "❤️ " + String(post.likesCount)
         cell.timeshampLabel.text = String(Helper.shared.getTimeSince(timeshamp: post.timeshamp))
-        
+
         if !selectedIndexes.contains(where: { $0 == post.postID }) {
             cell.previewText.numberOfLines = 2
             cell.button.setTitle("Expand", for: .normal)
@@ -133,7 +133,6 @@ extension MainViewController: UITableViewDataSource {
             cell.previewText.numberOfLines = 0
             cell.button.setTitle("Collapse", for: .normal)
         }
-        
         return cell
     }
 }
@@ -149,6 +148,9 @@ extension MainViewController: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        selectedIndexes = []
     }
 }
 

@@ -75,14 +75,11 @@
 				0B56694B2AACF2F9007EA328 /* App */,
 				0B5669462AACEFF7007EA328 /* Model */,
 				0B5669432AACEF00007EA328 /* Managers */,
-				0B56693F2AACC7E3007EA328 /* Main Screen */,
-				0B5669402AACC7FB007EA328 /* Detail Screen */,
+				0B82CD9A2AAE4683007514E2 /* Screens */,
+				0B82CD992AAE4665007514E2 /* Supportinf Files */,
 				0B56692E2AACC5C7007EA328 /* Assets.xcassets */,
 				0B5669302AACC5C7007EA328 /* LaunchScreen.storyboard */,
 				0B5669332AACC5C7007EA328 /* Info.plist */,
-				0B5669492AACF25B007EA328 /* Constants.swift */,
-				0B56694C2AACF5ED007EA328 /* Helper.swift */,
-				0B56694F2AACFD68007EA328 /* UIImageView + Extension.swift */,
 			);
 			path = githubusercontentTEST;
 			sourceTree = "<group>";
@@ -129,6 +126,25 @@
 				0B5669272AACC5C6007EA328 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		0B82CD992AAE4665007514E2 /* Supportinf Files */ = {
+			isa = PBXGroup;
+			children = (
+				0B5669492AACF25B007EA328 /* Constants.swift */,
+				0B56694C2AACF5ED007EA328 /* Helper.swift */,
+				0B56694F2AACFD68007EA328 /* UIImageView + Extension.swift */,
+			);
+			path = "Supportinf Files";
+			sourceTree = "<group>";
+		};
+		0B82CD9A2AAE4683007514E2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				0B56693F2AACC7E3007EA328 /* Main Screen */,
+				0B5669402AACC7FB007EA328 /* Detail Screen */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
