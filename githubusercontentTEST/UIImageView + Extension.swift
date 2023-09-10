@@ -40,3 +40,16 @@ extension UIImageView {
         }.resume()
     }
 }
+
+
+extension UILabel {
+    var numberOfVisibleLines: Int {
+        let textSize = CGSize(width: self.bounds.width, height: CGFloat(MAXFLOAT))
+        let textRect = self.text?.boundingRect(with: textSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil)
+        if let rect = textRect {
+            let numberOfLines = Int(rect.height / self.font.lineHeight)
+            return numberOfLines
+        }
+        return 0
+    }
+}

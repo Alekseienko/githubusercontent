@@ -31,7 +31,7 @@ extension MainViewController {
     
     private func config() {
         navigationItem.title = "App"
-        let rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(test))
+        let rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(didTapSort))
         navigationItem.rightBarButtonItem = rightBarButtonItem
         
         mainView.tableView.dataSource = self
@@ -39,8 +39,35 @@ extension MainViewController {
         mainView.tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.id)
     }
     
-    @objc private func test() {
-        print("⚠️", #function)
+    @objc private func didTapSort() {
+        let alert = UIAlertController(title: "Sort", message: "", preferredStyle: .actionSheet)
+       
+        let sortByLikesUp = UIAlertAction(title: "By Likes >", style: .default) { UIAlertAction in
+            let sortedPosts = self.mainPosts.sorted { $0.likesCount > $1.likesCount }
+            self.mainPosts = sortedPosts
+            self.mainView.tableView.reloadData()
+        }
+        let sortByLikesDown = UIAlertAction(title: "By Likes <", style: .default) { UIAlertAction in
+            let sortedPosts = self.mainPosts.sorted { $0.likesCount < $1.likesCount }
+            self.mainPosts = sortedPosts
+            self.mainView.tableView.reloadData()
+        }
+        let sortByDateUp = UIAlertAction(title: "By Date >", style: .default) { UIAlertAction in
+            let sortedPosts = self.mainPosts.sorted { $0.timeshamp > $1.timeshamp }
+            self.mainPosts = sortedPosts
+            self.mainView.tableView.reloadData()
+        }
+        let sortByDateDown = UIAlertAction(title: "By Date <", style: .default) { UIAlertAction in
+            let sortedPosts = self.mainPosts.sorted { $0.timeshamp < $1.timeshamp }
+            self.mainPosts = sortedPosts
+            self.mainView.tableView.reloadData()
+        }
+        alert.addAction(sortByLikesUp)
+        alert.addAction(sortByLikesDown)
+        alert.addAction(sortByDateUp)
+        alert.addAction(sortByDateDown)
+        alert.addAction(UIAlertAction(title: "Cancle", style: .destructive, handler: nil))
+        self.present(alert, animated: true)
     }
     
     private func fetchData() {

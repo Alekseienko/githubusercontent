@@ -32,12 +32,14 @@ class MainTableViewCell: UITableViewCell {
     }()
     let likeCountLabel: UILabel = {
         let view = UILabel()
+        view.font = .boldSystemFont(ofSize: 15)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     let timeshampLabel: UILabel = {
         let view = UILabel()
         view.textAlignment = .right
+        view.font = .boldSystemFont(ofSize: 15)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -68,6 +70,7 @@ class MainTableViewCell: UITableViewCell {
 
 extension MainTableViewCell {
     private func setup() {
+        
         contentView.addSubview(titleLabel)
         contentView.addSubview(previewText)
         contentView.addSubview(button)
@@ -96,6 +99,5 @@ extension MainTableViewCell {
             timeshampLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             timeshampLabel.bottomAnchor.constraint(equalTo: button.topAnchor,constant: -12),
         ])
-        
     }
 }

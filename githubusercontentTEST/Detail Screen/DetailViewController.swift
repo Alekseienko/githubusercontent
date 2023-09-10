@@ -73,7 +73,6 @@ extension DetailViewController {
             case .failure(let error):
                 print("Error: \(error)")
             }
-            print("⚠️", #function, self.postDetailData.post.title)
         }
     }
 }
