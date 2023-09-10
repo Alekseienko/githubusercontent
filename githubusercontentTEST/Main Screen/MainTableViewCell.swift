@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol MainTableViewCellDelegate: AnyObject {
+    func showText(_ cell: MainTableViewCell)
+}
+
 class MainTableViewCell: UITableViewCell {
     
     static let id = "MainTableViewCell"
+    weak var delegate: MainTableViewCellDelegate?
+    var isExpanded = true
     
     let titleLabel: UILabel = {
         let view = UILabel()
@@ -47,7 +53,8 @@ class MainTableViewCell: UITableViewCell {
         let view = UIButton()
         view.layer.cornerRadius = 8
         view.backgroundColor = .blue
-        view.setTitle("Epand", for: .normal)
+        view.setTitle("Eхpand", for: .normal)
+        view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -65,12 +72,27 @@ class MainTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
     }
+    
+    @objc func showText(sender: UIButton) {
+        delegate?.showText(self)
+        if isExpanded {
+            isExpanded = false
+            sender.setTitle("Collapse", for: .normal)
+            previewText.numberOfLines = 0
+        } else {
+            isExpanded = true
+            sender.setTitle("Eхpand", for: .normal)
+            previewText.numberOfLines = 2
+        }
+        layoutIfNeeded()
+    }
 }
 // MARK: - Configuration
 
 extension MainTableViewCell {
     private func setup() {
-        
+        button.addTarget(self, action: #selector(showText), for: .touchUpInside)
+
         contentView.addSubview(titleLabel)
         contentView.addSubview(previewText)
         contentView.addSubview(button)

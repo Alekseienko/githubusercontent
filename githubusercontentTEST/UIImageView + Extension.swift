@@ -11,21 +11,15 @@ import UIKit
 
 extension UIImageView {
     func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
-        // Create a URL from the provided string
         guard let imageURL = URL(string: urlString) else {
             print("Invalid URL: \(urlString)")
             completion(nil)
             return
         }
-
-        // Create a data task to fetch the image data from the URL
         URLSession.shared.dataTask(with: imageURL) { data, response, error in
             if let data = data {
-                // Create a UIImage from the downloaded data
                 if let image = UIImage(data: data) {
-                    // Update the UI on the main thread
                     DispatchQueue.main.async {
-                        // Set the image of the UIImageView
                         self.image = image
                         completion(image)
                     }
@@ -51,5 +45,38 @@ extension UILabel {
             return numberOfLines
         }
         return 0
+    }
+    
+    
+    func isTextFit() -> Bool {
+        if let labelText = text as? NSString, let labelFont = font {
+            let labelWidth = frame.size.width
+            let textSize = labelText.size(withAttributes: [NSAttributedString.Key.font: labelFont])
+            return textSize.width <= labelWidth
+        }
+        return true // Враховуйте інші сценарії за замовчуванням
+    }
+    
+    func isTextWrapped() -> Bool {
+           if let labelText = text, let labelFont = font {
+               let labelSize = CGSize(width: frame.size.width, height: .greatestFiniteMagnitude)
+               let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
+               let attributes: [NSAttributedString.Key: Any] = [.font: labelFont]
+               let textRect = labelText.boundingRect(with: labelSize, options: options, attributes: attributes, context: nil)
+               return textRect.height > frame.size.height
+           }
+           return false
+       }
+    
+    func maxCharactersForTwoLines() -> Int {
+        guard let labelText = text, let labelFont = font else {
+            return 0
+        }
+
+        let labelWidth = frame.size.width
+        let charSize = "X".size(withAttributes: [NSAttributedString.Key.font: labelFont])
+
+        let maxCharsInOneLine = Int(labelWidth / charSize.width)
+        return maxCharsInOneLine * 2
     }
 }

@@ -15,10 +15,7 @@ class Helper {
         alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
         viewController.present(alert, animated: true)
     }
-    
-    
-    
-    
+
     func getTimeSince(timeshamp: Int, isShort: Bool = false) -> String {
         var formattedString = String()
         let now = Date()

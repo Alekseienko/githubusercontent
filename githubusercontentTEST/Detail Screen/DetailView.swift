@@ -39,6 +39,7 @@ class DetailView: UIView {
         view.textColor = .secondaryLabel
         view.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         view.textAlignment = .left
+        view.isEditable = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

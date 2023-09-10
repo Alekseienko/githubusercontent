@@ -13,6 +13,7 @@ class MainView: UIView {
         let view = UITableView(frame: .zero, style: .insetGrouped)
         view.backgroundColor = .systemGray6
         view.separatorColor = .clear
+        view.rowHeight = UITableView.automaticDimension
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

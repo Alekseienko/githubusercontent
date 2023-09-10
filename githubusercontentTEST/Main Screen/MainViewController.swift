@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
     private let mainView = MainView()
     var mainPosts: [Post] = []
+    var selectedIndexes: [Int] = []
 }
 
 // MARK: - Lifecircle
@@ -118,11 +119,21 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.id, for: indexPath) as? MainTableViewCell else {return UITableViewCell()
         }
+        cell.delegate = self
         let post = mainPosts[indexPath.section]
         cell.titleLabel.text = post.title
         cell.previewText.text = post.previewText
         cell.likeCountLabel.text = "❤️ " + String(post.likesCount)
         cell.timeshampLabel.text = String(Helper.shared.getTimeSince(timeshamp: post.timeshamp))
+        
+        if !selectedIndexes.contains(where: { $0 == post.postID }) {
+            cell.previewText.numberOfLines = 2
+            cell.button.setTitle("Expand", for: .normal)
+        } else {
+            cell.previewText.numberOfLines = 0
+            cell.button.setTitle("Collapse", for: .normal)
+        }
+        
         return cell
     }
 }
@@ -139,9 +150,20 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+}
+
+// MARK: - MainTableViewCellDelegate
+
+extension MainViewController: MainTableViewCellDelegate {
+    func showText(_ cell: MainTableViewCell) {
+        guard let indexPath = mainView.tableView.indexPath(for: cell) else { return }
         
-        return UITableView.automaticDimension
+        let elementIndex = mainPosts[indexPath.section].postID
+        if let index = selectedIndexes.firstIndex(where: { $0 == elementIndex }) {
+            selectedIndexes.remove(at: index)
+        } else {
+            selectedIndexes.append(elementIndex)
+        }
+        mainView.tableView.reloadData()
     }
 }
